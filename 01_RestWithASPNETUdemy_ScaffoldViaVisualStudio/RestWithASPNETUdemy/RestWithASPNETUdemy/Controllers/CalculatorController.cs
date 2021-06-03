@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace RestWithASPNETUdemy.Controllers
 {
@@ -80,11 +81,9 @@ namespace RestWithASPNETUdemy.Controllers
         {
             if (isNumeric(firstNumber) && isNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
+                var sum = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber)) / 2;
 
-                var result = sum / 2;
-
-                return Ok("Result " + result.ToString());
+                return Ok("Result " + sum.ToString());
             }
 
             return BadRequest("Invalid Input");
@@ -95,9 +94,9 @@ namespace RestWithASPNETUdemy.Controllers
         {
             if (isNumeric(firstNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) * ConvertToDecimal(firstNumber);
+                var square = Math.Sqrt((double)ConvertToDecimal(firstNumber));
 
-                return Ok("Result " + sum.ToString());
+                return Ok("Result " + square.ToString());
             }
 
             return BadRequest("Invalid Input");
