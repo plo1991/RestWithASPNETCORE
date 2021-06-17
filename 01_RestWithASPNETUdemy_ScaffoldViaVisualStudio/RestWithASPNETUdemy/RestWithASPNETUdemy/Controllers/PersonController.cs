@@ -10,15 +10,25 @@ namespace RestWithASPNETUdemy.Controllers
     [Route("api/[controller]/v{version:apiVersion}")]
     public class PersonController : ControllerBase
     {
+        #region Variaveis
+
         private readonly ILogger<PersonController> _logger;
 
         private IPersonBusiness _personBusiness;
+
+        #endregion
+
+        #region Construtor
 
         public PersonController(ILogger<PersonController> logger, IPersonBusiness personBusiness)
         {
             _logger = logger;
             _personBusiness = personBusiness;
         }
+
+        #endregion
+
+        #region Metodos
 
         [HttpGet]
         public IActionResult Get()
@@ -60,5 +70,7 @@ namespace RestWithASPNETUdemy.Controllers
 
             return NoContent();
         }
+
+        #endregion
     }
 }

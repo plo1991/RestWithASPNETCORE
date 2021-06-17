@@ -1,17 +1,18 @@
 ﻿using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Model.Context.Base;
 using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Repository
 {
-    public interface IPersonRepository
+    public interface IRepository<T> where T : BaseEntity
     {
-        Person Create(Person person);
+        T Create(T item);
 
-        Person FindById(long id);
+        T FindById(long id);
         
-        List<Person> FindAll();
+        List<T> FindAll();
         
-        Person Update(Person person);
+        T Update(T item);
         
         void Delete(long Id);
         

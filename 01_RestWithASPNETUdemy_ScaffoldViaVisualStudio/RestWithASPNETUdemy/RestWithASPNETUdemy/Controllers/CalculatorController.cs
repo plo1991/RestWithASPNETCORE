@@ -8,13 +8,22 @@ namespace RestWithASPNETUdemy.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
+        #region Variaveis
 
         private readonly ILogger<CalculatorController> _logger;
+
+        #endregion
+
+        #region Construtor
 
         public CalculatorController(ILogger<CalculatorController> logger)
         {
             _logger = logger;
         }
+
+        #endregion
+
+        #region Metodos
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
         public IActionResult Sum(string firstNumber, string secondNumber)
@@ -125,5 +134,7 @@ namespace RestWithASPNETUdemy.Controllers
 
             return 0;
         }
+
+        #endregion
     }
 }
