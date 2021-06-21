@@ -12,11 +12,17 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using RestWithASPNETUdemy.Repository.Generic;
+using RestWithASPNETUdemy.Hypermedia.Filters;
+using RestWithASPNETUdemy.Hypermedia.Enricher;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace RestWithASPNETUdemy
 {
     public class Startup
     {
+
+
         public IConfiguration Configuration { get; }
 
         public IWebHostEnvironment Environment { get; }
@@ -39,14 +45,36 @@ namespace RestWithASPNETUdemy
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
 
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
-            
+
             if (Environment.IsDevelopment())
-             {
+            {
                 MigrateDatabase(connection);
-             }
+            }
+
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
+
+            services.AddSingleton(filterOptions);
 
             //vesionamento de API
             services.AddApiVersioning();
+
+            //swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Rest API ASP.NET CORE 5 and Docker",
+                        Version = "v1",
+                        Description = "Rest API",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Paulo Henrique Borges da Silva",
+                            Url = new Uri("http://github.com/plo1991")
+                        }
+                    });
+            });
 
             //Injeção de Dependência
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
@@ -68,11 +96,24 @@ namespace RestWithASPNETUdemy
 
             app.UseRouting();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "Rest API - V1");
+            });
+
+            var options = new RewriteOptions();
+            options.AddRedirect("^$", "swagger");
+            app.UseRewriter(options);
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefautApi", "{controller=values}/{id?}");
             });
         }
 
@@ -83,7 +124,7 @@ namespace RestWithASPNETUdemy
                 var evolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
                 var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
                 {
-                    Locations = new List<string> {"db/migrations","db/dataset"},
+                    Locations = new List<string> { "db/migrations", "db/dataset" },
                     IsEraseDisabled = true,
                 };
                 evolve.Migrate();

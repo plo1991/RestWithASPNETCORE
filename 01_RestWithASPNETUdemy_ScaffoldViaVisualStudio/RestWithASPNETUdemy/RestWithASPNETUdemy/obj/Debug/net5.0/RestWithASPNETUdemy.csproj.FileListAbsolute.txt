@@ -47,12 +47,10 @@ C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.csproj.CopyComplete
-C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -73,3 +71,4 @@ C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Serilog.Sinks.File.dll
 C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.csproj.AssemblyReference.cache
+C:\Users\usrCodeDev01\Documents\GitHub\RestWithASPNETCORE\01_RestWithASPNETUdemy_ScaffoldViaVisualStudio\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.OpenApi.dll

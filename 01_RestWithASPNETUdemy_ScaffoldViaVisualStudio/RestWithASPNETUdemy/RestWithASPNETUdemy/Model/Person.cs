@@ -1,4 +1,4 @@
-﻿using RestWithASPNETUdemy.Model.Context.Base;
+﻿using RestWithASPNETUdemy.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNETUdemy.Model
@@ -14,7 +14,6 @@ namespace RestWithASPNETUdemy.Model
 
         [Column("address")]
         public string Address { get; set; }
-
         [Column("gender")]
         public string Gender { get; set; }
     }

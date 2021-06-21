@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestWithASPNETUdemy.Model.Base;
 using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Model.Context.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +9,21 @@ namespace RestWithASPNETUdemy.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        #region Variaveis
         private MySQLContext _context;
-        private DbSet<T> dataset;
-        #endregion
 
-        #region Construtor
+        private DbSet<T> dataset;
         public GenericRepository(MySQLContext context)
         {
             _context = context;
             dataset = _context.Set<T>();
         }
-        #endregion
 
-        #region Metodos
         public List<T> FindAll()
         {
             return dataset.ToList();
         }
 
-        public T FindById(long id)
+        public T FindByID(long id)
         {
             return dataset.SingleOrDefault(p => p.Id.Equals(id));
         }
@@ -39,7 +34,6 @@ namespace RestWithASPNETUdemy.Repository.Generic
             {
                 dataset.Add(item);
                 _context.SaveChanges();
-
                 return item;
             }
             catch (Exception)
@@ -57,7 +51,6 @@ namespace RestWithASPNETUdemy.Repository.Generic
                 {
                     _context.Entry(result).CurrentValues.SetValues(item);
                     _context.SaveChanges();
-
                     return result;
                 }
                 catch (Exception)
@@ -74,7 +67,6 @@ namespace RestWithASPNETUdemy.Repository.Generic
         public void Delete(long id)
         {
             var result = dataset.SingleOrDefault(p => p.Id.Equals(id));
-
             if (result != null)
             {
                 try
@@ -93,6 +85,5 @@ namespace RestWithASPNETUdemy.Repository.Generic
         {
             return dataset.Any(p => p.Id.Equals(id));
         }
-        #endregion
     }
 }

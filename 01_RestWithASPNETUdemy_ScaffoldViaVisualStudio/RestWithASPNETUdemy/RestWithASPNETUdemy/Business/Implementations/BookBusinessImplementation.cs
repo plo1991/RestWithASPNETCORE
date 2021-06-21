@@ -1,4 +1,6 @@
-﻿using RestWithASPNETUdemy.Model;
+﻿using RestWithASPNETUdemy.Data.Converter.Implementations;
+using RestWithASPNETUdemy.Data.VO;
+using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Repository;
 using System.Collections.Generic;
 
@@ -6,43 +8,50 @@ namespace RestWithASPNETUdemy.Business.Implementations
 {
     public class BookBusinessImplementation : IBookBusiness
     {
-        #region Variaveis
-        private readonly IRepository<Book> _repository;
-        #endregion
 
-        #region Construtor
+        private readonly IRepository<Book> _repository;
+
+        private readonly BookConverter _converter;
+
         public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
+            _converter = new BookConverter();
         }
-        #endregion
 
-        #region Metodos
-        public List<Book> FindAll()
+        // Method responsible for returning all people,
+        public List<BookVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Book FindById(long id)
+        // Method responsible for returning one person by ID
+        public BookVO FindByID(long id)
         {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
 
-        public Book Create(Book book)
+        // Method responsible to crete one new person
+        public BookVO Create(BookVO person)
         {
-            return _repository.Create(book);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
 
-        public Book Update(Book book)
+        // Method responsible for updating one person
+        public BookVO Update(BookVO person)
         {
-            return _repository.Update(book);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
 
+        // Method responsible for deleting a person from an ID
         public void Delete(long id)
         {
             _repository.Delete(id);
         }
-
-        #endregion
     }
 }
+
